@@ -1,0 +1,26 @@
+{
+  "name": "apisdo",
+  "version": "6.10.1",
+  "description": "an api for the SDO",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tydus101/apiSDO.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Tyler Reimold <tylerreimold@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tydus101/apiSDO/issues"
+  },
+  "homepage": "https://github.com/tydus101/apiSDO#readme"
+}
