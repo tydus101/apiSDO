@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/tydus101/apiSDO/issues"
   },
-  "homepage": "https://github.com/tydus101/apiSDO#readme"
+  "homepage": "https://github.com/tydus101/apiSDO#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
 }
