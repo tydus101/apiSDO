@@ -13,16 +13,14 @@ var assert = require('assert');
 describe('API ', function() {
 	[
 	{
-		 "startdate": "01/04/1998",
-  		 "enddate": "01/05/1998",
+		 "startdate": "01/04/2019",
+  		 "enddate": "01/05/2017",
 	}
 	].forEach(function(obj){
 		it("Should succeed with: " + JSON.stringify(obj), function(done) {
 
 			LambdaTester(myLambda.handler)
-			.event(obj).expectSucceed(function(result){
-				expect(result.valid).to.be.true;
-			}).verify( done );
+			.event(obj).expectResult().verify(done);
 		});
 
 	});

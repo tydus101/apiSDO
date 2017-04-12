@@ -1,4 +1,5 @@
 var AWS = require('aws-sdk');
+const SDOMISSIONSTART = new Date("4/1/2010");
 // index.test.js
 
 
