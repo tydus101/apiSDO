@@ -1,6 +1,8 @@
 var AWS = require('aws-sdk');
+// index.test.js
 
-const SDOMISSIONSTART = new Date("4/1/2010");
+
+
 
 exports.handler = (event, context, callback) => {
     var startdate = null;
