@@ -1,4 +1,6 @@
 var AWS = require('aws-sdk');
+var cheerio = require('cheerio');
+var request = require('request');
 const SDOMISSIONSTART = new Date("4/1/2010");
 // index.test.js
 
@@ -8,6 +10,10 @@ const SDOMISSIONSTART = new Date("4/1/2010");
 exports.handler = (event, context, callback) => {
     var startdate = null;
     var enddate = null;
+
+    var response = { 
+    };
+
     if(event.startdate && event.enddate){
         startdate = new Date(event.startdate);
         enddate = new Date(event.enddate);
@@ -34,5 +40,10 @@ exports.handler = (event, context, callback) => {
     else{
         callback("Both start and end date must be selected.", event);
     }
-    callback(null, event);
+
+
+
+
+
+    callback(null, response);
 };

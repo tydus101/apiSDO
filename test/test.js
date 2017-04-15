@@ -7,9 +7,12 @@ var myLambda = require( '../index' );
 var assert = require('assert');
 
 //These constants should always succeed 
-const STARTDATE = "01/04/2016" //Must use with ENDDATE
-const ENDDATE = "01/04/2017"
-const SIZE = "1024"
+const STARTDATE = "01/04/2016"; //Must use with ENDDATE
+const ENDDATE = "01/04/2017";
+const SIZE = "1024";
+const CHANNEL = "0304";
+const STARTTIME = "12";
+const ENDTIME = "12";
 
 
 
@@ -90,6 +93,43 @@ describe('Date test: API ', function() {
 			LambdaTester(myLambda.handler)
 			.event(obj).expectError().verify(done);
 		});
+
+	});
+
+});
+
+//All date test events where API should succeed.
+describe('Basic Web Scraping test: API ', function() {
+	[
+	//1
+	{
+		 "startdate": STARTDATE,
+  		 "enddate": ENDDATE,
+  		 "size": SIZE,
+	}
+	].forEach(function(obj){
+		it("Images exist with with: " + JSON.stringify(obj), function(done) {
+
+			LambdaTester(myLambda.handler)
+			.event(obj).expectResult( function(result) {
+				expect( result.images ).to.exist;
+			}).verify( done );
+		});
+		it("2017 images exist with: " + JSON.stringify(obj), function(done) {
+
+			LambdaTester(myLambda.handler)
+			.event(obj).expectResult( function(result) {
+				expect( result.images ).to.include.keys("2017");
+			}).verify( done );
+		});
+		it("2016 images exist with: " + JSON.stringify(obj), function(done) {
+
+			LambdaTester(myLambda.handler)
+			.event(obj).expectResult( function(result) {
+				expect( result.images ).to.include.keys("2016");
+			}).verify( done );
+		});
+
 
 	});
 
